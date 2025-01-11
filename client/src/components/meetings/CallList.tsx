@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useGetCalls } from '../../hooks/useGetCalls';
 import { Call, CallRecording } from '@stream-io/video-react-sdk';
 import { Box, Center, Flex, SimpleGrid, Spinner, Text } from '@chakra-ui/react';

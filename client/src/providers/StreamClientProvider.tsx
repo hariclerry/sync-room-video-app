@@ -1,6 +1,6 @@
 import { useUser } from '@clerk/clerk-react';
 import { StreamVideo, StreamVideoClient } from '@stream-io/video-react-sdk';
-import React, { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { generateToken } from '../api/api';
 import { Spinner } from '@chakra-ui/react';
 

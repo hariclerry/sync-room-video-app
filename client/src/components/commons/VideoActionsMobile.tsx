@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { Box, IconButton } from '@chakra-ui/react';
 import { FaBars } from 'react-icons/fa';
 import { MdClose } from 'react-icons/md';

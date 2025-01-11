@@ -1,7 +1,7 @@
 import { Box, Center, Spinner } from '@chakra-ui/react';
 import { useUser } from '@clerk/clerk-react';
 import { StreamCall, StreamTheme } from '@stream-io/video-react-sdk';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetCallById } from '../../hooks/useGetCallById';
 import MeetingSetup from '../../components/meetings/MeetingSetup';
