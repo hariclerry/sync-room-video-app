@@ -8,6 +8,7 @@
     "jsx": "react",
     "strict": true,
     "esModuleInterop": true,
+    "noEmitOnError": false,
     "skipLibCheck": true,
     "paths": {
       "@/*": ["./src/*"]
