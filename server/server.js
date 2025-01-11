@@ -2,6 +2,8 @@ const express = require('express');
 const dotenv = require('dotenv');
 const { StreamClient } = require("@stream-io/node-sdk");
 const cors = require('cors');
+const path = require("path");
+const enforce = require("express-sslify");
 
 
 dotenv.config();
@@ -21,6 +23,15 @@ if (!STREAM_API_KEY || !STREAM_API_SECRET) {
 const streamClient = new StreamClient(STREAM_API_KEY, STREAM_API_SECRET);
 
 app.use(express.json());
+
+if (process.env.NODE_ENV === "production") {
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
+  app.use(express.static(path.join(__dirname, "../client/build")));
+
+  app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+  });
+}
 
 app.post('/generate-token', (req, res) => {
   const { userId } = req.body;
