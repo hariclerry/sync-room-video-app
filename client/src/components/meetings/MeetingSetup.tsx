@@ -6,6 +6,8 @@ import {
   VideoPreview,
 } from '@stream-io/video-react-sdk';
 import React, { useEffect, useState } from 'react';
+import { FaArrowLeft } from 'react-icons/fa6';
+import { useNavigate } from 'react-router-dom';
 
 const MeetingSetup = ({
   setIsSetupComplete,
@@ -13,6 +15,7 @@ const MeetingSetup = ({
   setIsSetupComplete: (value: boolean) => void;
 }) => {
   const [isMicCamToggled, setIsMicCamToggled] = useState(false);
+  const navigate = useNavigate();
 
   const call = useCall();
 
@@ -33,46 +36,64 @@ const MeetingSetup = ({
   }, [isMicCamToggled, call.camera, call.microphone]);
 
   return (
-    <Box
-      display="flex"
-      height="100vh"
-      width="100%"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      gap={3}
-      color="white"
-    >
-      <Text textAlign="center" fontSize="2xl" fontWeight="bold">
-        Setup
-      </Text>
-      <VideoPreview />
-      <HStack gap={4}>
-        <Checkbox
-          fontSize={'2xl'}
-          checked={isMicCamToggled}
-          onChange={() => setIsMicCamToggled(!isMicCamToggled)}
-        >
-          {' '}
-          Join with mic and camera off
-        </Checkbox>
-        <DeviceSettings />
-      </HStack>
-
+    <>
       <Button
-        backgroundColor={'green'}
+        border="none"
+        color="green"
         _hover={{
-          borderColor: 'green',
+          borderColor: 'none',
+          border: 'none',
+          color: 'green.600',
         }}
-        onClick={() => {
-          call.join();
-
-          setIsSetupComplete(true);
-        }}
+        cursor={'option'}
+        margin={4}
+        onClick={() => navigate('/')}
       >
-        Join meeting
+        <FaArrowLeft />
+        Back Home
       </Button>
-    </Box>
+
+      <Box
+        display="flex"
+        height="100vh"
+        width="100%"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        gap={3}
+        color="white"
+      >
+        <Text textAlign="center" fontSize="2xl" fontWeight="bold">
+          Setup
+        </Text>
+        <VideoPreview />
+        <HStack gap={4}>
+          <Checkbox
+            fontSize={'2xl'}
+            checked={isMicCamToggled}
+            onChange={() => setIsMicCamToggled(!isMicCamToggled)}
+          >
+            {' '}
+            Join with mic and camera off
+          </Checkbox>
+          <DeviceSettings />
+        </HStack>
+
+        <Button
+          backgroundColor={'green'}
+          _hover={{
+            borderColor: 'green',
+          }}
+          onClick={() => {
+            call.join();
+
+            setIsSetupComplete(true);
+          }}
+        >
+          Join meeting
+        </Button>
+      </Box>
+    </>
   );
 };
 
