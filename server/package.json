@@ -1,0 +1,19 @@
+{
+  "name": "stream-token-generator",
+  "version": "1.0.0",
+  "description": "A server to generate tokens for Stream React API app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "@stream-io/node-sdk": "^0.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
