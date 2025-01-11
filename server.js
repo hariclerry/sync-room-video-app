@@ -32,6 +32,11 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+
+
 app.get("service-worker.js", (req, res) => {
   res.sendFile(path.resolve(__dirname, "..", "build", "service-worker.js"));
 });
@@ -52,9 +57,4 @@ app.post('/generate-token', (req, res) => {
     console.error('Error generating token:', error);
     res.status(500).json({ error: 'Failed to generate token' });
   }
-});
-
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
 });
