@@ -10,12 +10,12 @@ const CustomSignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    if (isSignedIn) {
-      const redirectTo = location.state?.from?.pathname || '/';
-      navigate(redirectTo, { replace: true });
-    }
-  }, [isSignedIn, navigate, location.state]);
+  // useEffect(() => {
+  //   if (isSignedIn) {
+  //     const redirectTo = location.state?.from?.pathname || '/';
+  //     navigate(redirectTo, { replace: true });
+  //   }
+  // }, [isSignedIn, navigate, location.state]);
 
   return (
     <Flex marginTop="20" justifyContent={'center'}>

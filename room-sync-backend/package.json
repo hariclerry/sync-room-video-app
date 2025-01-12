@@ -4,8 +4,8 @@
   "description": "A server to generate tokens for Stream React API app",
   "main": "server.js",
   "scripts": {
-    "client": "cd client && npm install && npm run dev",
-    "build": "cd client && npm install && npm run build",
+    "client": "cd ../client && npm install && npm run dev",
+    "build": "cd ../client && npm install && npm run build",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "server": "nodemon server.js",
     "start": "node server.js"
