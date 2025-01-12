@@ -172,6 +172,12 @@ button:focus {
   border-color: rgb(137 134 134 / 50%);
 }
 
+.cl-footerActionText{
+  display: none;
+}
+.cl-footerActionLink {
+  display: none;
+}
 /* Stream video style */
 .str-video__video-preview-container {
   border-block-start: none !important; 
