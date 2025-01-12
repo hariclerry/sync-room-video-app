@@ -14,8 +14,7 @@
     "@stream-io/node-sdk": "^0.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "express-sslify": "^1.2.0"
+    "express": "^4.21.2"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",

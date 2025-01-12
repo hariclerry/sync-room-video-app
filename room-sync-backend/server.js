@@ -2,8 +2,6 @@ const express = require('express');
 const dotenv = require('dotenv');
 const { StreamClient } = require("@stream-io/node-sdk");
 const cors = require('cors');
-const path = require("path");
-const enforce = require("express-sslify");
 
 dotenv.config();
 
@@ -23,32 +21,11 @@ const streamClient = new StreamClient(STREAM_API_KEY, STREAM_API_SECRET);
 
 app.use(express.json());
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(enforce.HTTPS({ trustProtoHeader: true }));
-//   app.use(express.static(path.join(__dirname, "client/dist")));
-
-//   app.get("*", function (req, res) {
-//     res.sendFile(path.join(__dirname, "client/dist", "index.html"));
-//   });
-// }
-
-// Serve the React frontend in production
-if (process.env.NODE_ENV === "production") {
-  app.use(enforce.HTTPS({ trustProtoHeader: true }));
-  app.use(express.static(path.join(__dirname, "client/dist")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client/dist", "index.html"));
-  });
-}
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+// Example API route
+app.get("/api/hello", (req, res) => {
+  res.json({ message: "Hello from the roomSync backend!" });
 });
 
-
-app.get("service-worker.js", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "..", "build", "service-worker.js"));
-});
 
 app.post('/generate-token', (req, res) => {
   const { userId } = req.body;
@@ -67,3 +44,8 @@ app.post('/generate-token', (req, res) => {
     res.status(500).json({ error: 'Failed to generate token' });
   }
 });
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+
