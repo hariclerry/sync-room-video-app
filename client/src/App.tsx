@@ -1,36 +1,46 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 import { SignedOut, RedirectToSignIn } from '@clerk/clerk-react';
 import { Toaster } from './components/ui/toaster';
-import {
-  Home,
-  Upcoming,
-  Previous,
-  Recordings,
-  PersonalRoom,
-  Meeting,
-  CustomSignIn,
-  CustomSignUp,
-  Layout,
-  MinimalLayout,
-} from './pages/lazyImports';
+// import {
+//   Home,
+//   Upcoming,
+//   Previous,
+//   Recordings,
+//   PersonalRoom,
+//   Meeting,
+//   CustomSignIn,
+//   CustomSignUp,
+//   Layout,
+//   MinimalLayout,
+// } from './pages/lazyImports';
 import AppWithStreamVideoProvider from './components/ProtectedRoute/ProtectedRoute';
+import CustomSignIn from './pages/signin/SignIn';
+import CustomSignUp from './pages/signup/SignUp';
+import Layout from './pages/Layout';
+import Home from './pages/home/Home';
+import Upcoming from './pages/upcoming/Upcoming';
+import Recordings from './pages/recordings/Recordings';
+import Previous from './pages/previous/Previous';
+import PersonalRoom from './pages/room/PersonalRoom';
+import { MinimalLayout } from './pages/lazyImports';
+import Meeting from './pages/meeting/Meeting';
 
 const router = createBrowserRouter([
   {
     path: '/sign-in',
     element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <CustomSignIn />
-      </Suspense>
+      // <Suspense fallback={<div>Loading...</div>}>
+      <CustomSignIn />
+      // </Suspense>
     ),
   },
   {
     path: '/sign-up',
     element: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <CustomSignUp />
-      </Suspense>
+      // <Suspense fallback={<div>Loading...</div>}>
+      <CustomSignUp />
+      // </Suspense>
     ),
   },
 
@@ -42,9 +52,9 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <Layout />
-          </Suspense>
+          // <Suspense fallback={<div>Loading...</div>}>
+          <Layout />
+          // </Suspense>
         ),
         children: [
           { index: true, element: <Home /> },
@@ -57,9 +67,9 @@ const router = createBrowserRouter([
       {
         path: 'meeting/:id',
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <MinimalLayout />
-          </Suspense>
+          // <Suspense fallback={<div>Loading...</div>}>
+          <MinimalLayout />
+          // </Suspense>
         ),
         children: [{ index: true, element: <Meeting /> }],
       },
