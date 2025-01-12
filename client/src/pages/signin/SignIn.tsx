@@ -16,11 +16,11 @@ const CustomSignIn = () => {
       navigate(redirectTo, { replace: true });
     }
   }, [isSignedIn, navigate, location.state]);
-  // const signUpUrl = import.meta.env.VITE_CLERK_SIGN_UP_URL;
-
+  const signUpUrl = import.meta.env.VITE_CLERK_SIGN_UP_URL;
+  console.log('+++signUpUrl+++++', signUpUrl);
   return (
     <Flex marginTop="20" justifyContent={'center'}>
-      <SignIn path="/sign-in" routing="path" signUpUrl="/sign-in" />
+      <SignIn path="/sign-in" routing="path" signUpUrl={signUpUrl} />
     </Flex>
   );
 };
