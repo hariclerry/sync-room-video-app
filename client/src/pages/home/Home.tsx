@@ -72,6 +72,9 @@ const Home = () => {
   const meetingLink = `${import.meta.env.VITE_PUBLIC_BASE_URL}/meeting/${
     callDetail?.id
   }`;
+  const link = values?.link;
+  const pastedLink = link.split('/').slice(-2);
+  const filnalLink = '/' + pastedLink[0] + '/' + pastedLink[1];
 
   return (
     <Box>
@@ -143,7 +146,7 @@ const Home = () => {
           title="Type the link here"
           buttonText="Join Meeting"
           onClose={() => setMeetingState(undefined)}
-          onClick={() => navigate(values.link)}
+          onClick={() => navigate(filnalLink)}
         >
           <Input
             type="text"

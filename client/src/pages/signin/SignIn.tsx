@@ -9,6 +9,7 @@ const CustomSignIn = () => {
   const { isSignedIn } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const redirectTo = location.state?.from || '/';
 
   useEffect(() => {
     if (isSignedIn) {
@@ -18,7 +19,11 @@ const CustomSignIn = () => {
   }, [isSignedIn, navigate, location.state]);
   return (
     <Flex marginTop="20" justifyContent={'center'} position={'relative'}>
-      <SignIn></SignIn>
+      <SignIn
+        routing="path"
+        path="/sign-in"
+        forceRedirectUrl={redirectTo} //
+      ></SignIn>
       <Text mt={4} textAlign="center" position={'absolute'} bottom={86}>
         Don’t have an account?{' '}
         <Link to="/sign-up" style={{ color: 'green' }}>
