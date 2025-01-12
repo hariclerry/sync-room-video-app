@@ -23,11 +23,19 @@ const streamClient = new StreamClient(STREAM_API_KEY, STREAM_API_SECRET);
 
 app.use(express.json());
 
-if (process.env.NODE_ENV === "production") {
-  app.use(enforce.HTTPS({ trustProtoHeader: true }));
-  app.use(express.static(path.join(__dirname, "client/dist")));
+// if (process.env.NODE_ENV === "production") {
+//   app.use(enforce.HTTPS({ trustProtoHeader: true }));
+//   app.use(express.static(path.join(__dirname, "client/dist")));
 
-  app.get("*", function (req, res) {
+//   app.get("*", function (req, res) {
+//     res.sendFile(path.join(__dirname, "client/dist", "index.html"));
+//   });
+// }
+
+// Serve the React frontend in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client/dist")));
+  app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client/dist", "index.html"));
   });
 }
