@@ -34,6 +34,7 @@ app.use(express.json());
 
 // Serve the React frontend in production
 if (process.env.NODE_ENV === "production") {
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
   app.use(express.static(path.join(__dirname, "client/dist")));
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client/dist", "index.html"));
