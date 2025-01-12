@@ -22,7 +22,7 @@ const streamClient = new StreamClient(STREAM_API_KEY, STREAM_API_SECRET);
 app.use(express.json());
 
 // Example API route
-app.get("/api/hello", (req, res) => {
+app.get("/", (req, res) => {
   res.json({ message: "Hello from the roomSync backend!" });
 });
 
