@@ -6,6 +6,7 @@ import StreamVideoProvider from '../../providers/StreamClientProvider';
 const AppWithStreamVideoProvider = () => {
   const { isSignedIn } = useAuth();
   const location = useLocation();
+  console.log('User signed in-----:', isSignedIn);
 
   if (!isSignedIn) {
     // Redirect to sign-in, preserving the intended route in state
