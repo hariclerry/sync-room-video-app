@@ -77,7 +77,7 @@ function App() {
 
         {/* Catch-all Route for Unauthorized Access */}
         <Route
-          path="/"
+          path="/meeting/*"
           element={
             <SignedOut>
               <RedirectToSignIn />
