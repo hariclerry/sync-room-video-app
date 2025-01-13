@@ -75,6 +75,12 @@ function App() {
           />
         </Route>
 
+        <Route
+          path="*"
+          element={
+            <Navigate to="/sign-in" replace /> // Redirect signed-in users to home on invalid routes
+          }
+        />
         {/* Catch-all Route for Unauthorized Access */}
         <Route
           path="*"
