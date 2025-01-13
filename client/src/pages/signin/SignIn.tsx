@@ -1,35 +1,20 @@
-import { SignIn } from '@clerk/clerk-react';
-import { Text, Flex } from '@chakra-ui/react';
+import { SignIn } from '@clerk/react-router';
+import { Flex } from '@chakra-ui/react';
 
-import { useAuth } from '@clerk/clerk-react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const CustomSignIn = () => {
-  const { isSignedIn } = useAuth();
-  const navigate = useNavigate();
   const location = useLocation();
-  const redirectTo = location.state?.from || '/';
+  const redirectTo = location.state?.from.path || '/';
 
-  useEffect(() => {
-    if (isSignedIn) {
-      const redirectTo = location.state?.from?.pathname || '/';
-      navigate(redirectTo, { replace: true });
-    }
-  }, [isSignedIn, navigate, location.state]);
   return (
     <Flex marginTop="20" justifyContent={'center'} position={'relative'}>
       <SignIn
         routing="path"
         path="/sign-in"
+        signUpUrl="/sign-up"
         forceRedirectUrl={redirectTo} //
       ></SignIn>
-      <Text mt={4} textAlign="center" position={'absolute'} bottom={86}>
-        Don’t have an account?{' '}
-        <Link to="/sign-up" style={{ color: 'green' }}>
-          Sign up
-        </Link>
-      </Text>
     </Flex>
   );
 };
