@@ -107,7 +107,7 @@ const MeetingRoom = () => {
             >
               <PaginatedGridLayout
                 pageArrowsVisible={true}
-                groupSize={isDesktop ? 9 : 4}
+                groupSize={isDesktop ? 9 : 3}
               />
             </Box>
           </GridItem>
