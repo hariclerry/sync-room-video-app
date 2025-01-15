@@ -1,4 +1,4 @@
-import { SignIn, useAuth } from '@clerk/react-router';
+import { SignIn, useAuth } from '@clerk/clerk-react';
 import { Flex } from '@chakra-ui/react';
 
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -18,7 +18,7 @@ const CustomSignIn = () => {
 
   return (
     <Flex marginTop="20" justifyContent={'center'} position={'relative'}>
-      <SignIn routing="path" path="/sign-in" signUpUrl="/sign-up"></SignIn>
+      <SignIn signUpUrl="/sign-up" />
     </Flex>
   );
 };

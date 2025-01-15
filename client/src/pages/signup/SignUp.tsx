@@ -1,4 +1,4 @@
-import { SignUp } from '@clerk/react-router';
+import { SignUp } from '@clerk/clerk-react';
 import { Flex } from '@chakra-ui/react';
 
 function CustomSignUp() {

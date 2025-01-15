@@ -15,6 +15,7 @@ import {
   MinimalLayout,
 } from './pages/lazyImports';
 import AppWithStreamVideoProvider from './components/ProtectedRoute/ProtectedRoute';
+import NotFound from './pages/not-found/NotFound';
 
 function App() {
   return (
@@ -65,6 +66,8 @@ function App() {
           >
             <Route index element={<Meeting />} />
           </Route>
+
+          <Route path="*" element={<NotFound />} />
         </Route>
 
         <Route

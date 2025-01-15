@@ -1,7 +1,6 @@
 import { useAuth } from '@clerk/clerk-react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import StreamVideoProvider from '../../providers/StreamClientProvider';
-// import StreamVideoProvider from './providers/StreamClientProvider';
 
 const AppWithStreamVideoProvider = () => {
   const { isSignedIn } = useAuth();
