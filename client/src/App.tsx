@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Suspense } from 'react';
 import { SignedOut, RedirectToSignIn } from '@clerk/react-router';
 import { Toaster } from './components/ui/toaster';
@@ -65,33 +65,16 @@ function App() {
           >
             <Route index element={<Meeting />} />
           </Route>
-
-          {/* Catch-all Route for Signed-In Users */}
-          <Route
-            path="*"
-            element={
-              <Navigate to="/" replace /> // Redirect signed-in users to home on invalid routes
-            }
-          />
         </Route>
 
-        {/* Catch-all Route for Unauthorized Access */}
         <Route
-          path="/meeting/*"
-          element={
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
-          }
-        />
-        {/* <Route
           path="*"
           element={
             <SignedOut>
               <RedirectToSignIn />
             </SignedOut>
           }
-        /> */}
+        />
       </Routes>
       <Toaster />
     </>
